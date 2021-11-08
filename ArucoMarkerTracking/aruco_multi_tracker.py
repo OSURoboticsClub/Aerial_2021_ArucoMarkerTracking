@@ -197,7 +197,7 @@ class AcuroMultiTracker():
                     R_tc = R_ct.T
                     
                     # Get the attitude of camera relative to marker
-                    roll_camera, pitch_camera, yaw_camera = self._rotationMatrixToEulerAngles(self.R_flip * R_tc)
+                    roll_camera, pitch_camera, yaw_camera = self.rotationMatrixToEulerAngles(self.R_flip * R_tc)
                     
                     if not loop:
                         outputs.append({'id': marker['id'], 'x': tvec[0], 'y': tvec[1], 'z': tvec[2], 
