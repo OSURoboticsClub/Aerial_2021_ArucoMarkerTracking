@@ -25,7 +25,7 @@ def calibrate_camera(checkboard_n_rows,
 
         4) Call this function. To get good results, take at least 20 different pictures varying the angles and distances.
 
-        7) Use the output files
+        5) Use the output cameraMatrix.txt and cameraDistortion.txt files
     
     """
 
@@ -55,7 +55,7 @@ def calibrate_camera(checkboard_n_rows,
     while True:
         _, frame = cap.read()
 
-        cv2.imshow('camera', frame)
+        cv2.imshow('Camera Calibration', frame)
 
         key = cv2.waitKey(1) & 0xFF
 

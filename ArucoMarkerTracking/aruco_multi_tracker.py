@@ -211,7 +211,7 @@ class AcuroMultiTracker():
                     # Draw detected marker, put a reference frame over it, and draw detected marker pose information text
                     if show_video:
                         aruco.drawDetectedMarkers(frame, (corners[i],))
-                        aruco.drawAxis(frame, self.camera_matrix, self.camera_distortion, rvec, tvec, 1)
+                        aruco.drawAxis(frame, self.camera_matrix, self.camera_distortion, rvec, tvec, 10.0)
                         marker_text = str_position_attitude[str_position_attitude.index('Marker'):]
                         cv2.putText(frame, marker_text, (10, 100 + 50*i), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)
                    
@@ -225,7 +225,7 @@ class AcuroMultiTracker():
             
             if show_video:
                 # Display frame
-                cv2.imshow('frame', frame)
+                cv2.imshow('ArucoMultiTracker', frame)
 
                 # press 'ESC' to quit
                 key = cv2.waitKey(1) & 0xFF
