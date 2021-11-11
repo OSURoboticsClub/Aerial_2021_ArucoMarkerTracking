@@ -32,8 +32,9 @@ Example:
 from ArucoMarkerTracking import calibrate_camera
 
 # for a 9x6 Checkboard 
-calibrate_camera(checkboard_n_rows=9, checkboard_n_cols=6, checkboard_sqr_dim=3.0, camera_width=1920, camera_height=1080,
-                 image_save_path="./calibration/", image_filename_base="snapshot", image_type="jpg")
+calibrate_camera(checkboard_n_rows=9, checkboard_n_cols=6, checkboard_sqr_dim=3.0, 
+                 camera_width=1920, camera_height=1080, image_save_path="./calibration/", 
+                 image_filename_base="snapshot", image_type="jpg")
 ```
 
 ## ArucoMultiTracker
@@ -77,7 +78,8 @@ calib_path  = "./calibration/"
 camera_matrix   = np.loadtxt(calib_path+'cameraMatrix.txt', delimiter=',')
 camera_distortion   = np.loadtxt(calib_path+'cameraDistortion.txt', delimiter=',')                                      
 
-tracker = AcuroMultiTracker(ids, camera_matrix, camera_distortion, camera_size=[1920, 1080], show_video=True)
+tracker = AcuroMultiTracker(ids, camera_matrix, camera_distortion, 
+                            camera_size=[1920, 1080], show_video=True)
 
 tracker.track() # shows video capture with detected Aruco markers shown
 ```
