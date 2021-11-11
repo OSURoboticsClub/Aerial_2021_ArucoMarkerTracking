@@ -7,7 +7,7 @@ description = "Contains classes and functions to handle tracking of Aruco marker
 
 setuptools.setup(
     name="ArucoMarkerTracking",
-    version="0.0.3",
+    version="0.1.0",
     author="Nathan Rumsey",
     author_email="rumseyn@oregonstate.edu",
     description=description,

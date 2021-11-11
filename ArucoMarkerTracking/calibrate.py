@@ -11,7 +11,7 @@ def calibrate_camera(checkboard_n_rows,
                      camera_width, 
                      camera_height, 
                      image_save_path="./calibration", 
-                     imgae_filename_base="snapshot",
+                     image_filename_base="snapshot",
                      image_type="jpg"):
     """ 
     Produces cameraMatrix and cameraDistortion matrices in .txt files for use with opencv camera operations.
@@ -51,7 +51,7 @@ def calibrate_camera(checkboard_n_rows,
     w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
     h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
 
-    filename = "%s/%s_%d_%d_" %(image_save_path, imgae_filename_base, w, h)
+    filename = "%s/%s_%d_%d_" %(image_save_path, image_filename_base, w, h)
     while True:
         _, frame = cap.read()
 

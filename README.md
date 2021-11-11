@@ -27,6 +27,15 @@ In order to calibrate the camera you must:
 4. Call the `calibrate_camera` function. With appropriate parameters for the checkerboard rows, columns, square side length, and camera dimensions. To get good results, take at least 20 different pictures with varying angles and distances.
 5. You are done! You can use the output cameraMatrix.txt and cameraDistortion.txt files for the ArucoMultiTracker class.
 
+Example:
+```python
+from ArucoMarkerTracking import calibrate_camera
+
+# for a 9x6 Checkboard 
+calibrate_camera(checkboard_n_rows=9, checkboard_n_cols=6, checkboard_sqr_dim=3.0, camera_width=1920, camera_height=1080,
+                 image_save_path="./calibration/", image_filename_base="snapshot", image_type="jpg")
+```
+
 ## ArucoMultiTracker
 Tracks Aruco markers from OpenCV camera captures. 
 
@@ -54,6 +63,24 @@ It takes the following arguments:
 The `track()` function returns:
 * bool -- Represents if an Aruco marker was detected by this call of the function
 * list -- contains dicts that contain pose information for each detected Aruco marker if they are one of the target ids. None if parameter loop == True. The dicitonary keys are keys: {'id', 'x', 'y', 'z','roll', 'pitch', 'yaw'}
+
+Example:
+```python
+import numpy as np
+from ArucoMarkerTracking import AcuroMultiTracker
+
+# ids to find
+ids = [{'id': 419, 'marker_size': 10.0}, # marker size is in cm
+       {'id': 73, 'marker_size': 18.7}]
+
+calib_path  = "./calibration/"
+camera_matrix   = np.loadtxt(calib_path+'cameraMatrix.txt', delimiter=',')
+camera_distortion   = np.loadtxt(calib_path+'cameraDistortion.txt', delimiter=',')                                      
+
+tracker = AcuroMultiTracker(ids, camera_matrix, camera_distortion, camera_size=[1920, 1080], show_video=True)
+
+tracker.track() # shows video capture with detected Aruco markers shown
+```
 
 
 # Troubleshooting
