@@ -4,6 +4,8 @@ import numpy as np
 import cv2
 import cv2.aruco as aruco
 import math, time
+import asyncio
+
 
 class AcuroMultiTracker():
     def __init__(self,
@@ -125,7 +127,7 @@ class AcuroMultiTracker():
             return False, None
 
 
-    def track(self, loop=True, verbose=False, show_video=None):
+    async def track(self, loop=False, verbose=False, show_video=None):
         """ Tracks Aruco markers from cv2 camera captures. 
         
         Keyword Arguments:
