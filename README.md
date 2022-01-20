@@ -78,7 +78,7 @@ calib_path  = "./calibration/"
 camera_matrix   = np.loadtxt(calib_path+'cameraMatrix.txt', delimiter=',')
 camera_distortion   = np.loadtxt(calib_path+'cameraDistortion.txt', delimiter=',')                                      
 
-tracker = AcuroMultiTracker(ids, camera_matrix, camera_distortion, 
+tracker = ArucoMultiTracker(ids, camera_matrix, camera_distortion, 
                             camera_size=[1920, 1080], show_video=True)
 
 tracker.track() # shows video capture with detected Aruco markers shown
