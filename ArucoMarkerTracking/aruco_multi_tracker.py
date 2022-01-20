@@ -7,7 +7,7 @@ import math, time
 import asyncio
 
 
-class AcuroMultiTracker():
+class ArucoMultiTracker():
     def __init__(self,
                 ids_to_find, # list of dicts [{'id': int, 'marker_size': float (in cm)},...]
                 camera_matrix,
